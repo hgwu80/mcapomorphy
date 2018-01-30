@@ -4,10 +4,10 @@
 \alias{parse_genome}
 \title{parse NCBI genome webpage}
 \usage{
-parse_genome(id)
+parse_genome(path)
 }
 \arguments{
-\item{id}{string.}
+\item{path}{string. path to the HTML file.}
 }
 \value{
 data_frame
@@ -21,4 +21,9 @@ data_frame
 }
 \description{
 parse NCBI genome webpage
+}
+\examples{
+    parse_genome('data-raw/genome55342.html')
+    parse_genome('data-raw/genome2793.html')
+
 }

@@ -4,10 +4,10 @@
 \alias{parse_avibase}
 \title{parse wikipedia species webpage}
 \usage{
-parse_avibase(id)
+parse_avibase(path)
 }
 \arguments{
-\item{id}{string. Avibase id}
+\item{path}{string. path to the HTML file.}
 }
 \value{
 data_frame
@@ -22,6 +22,6 @@ data_frame
 parse wikipedia species webpage
 }
 \examples{
-aves::parse_avibase('900C590B5EEE5157')
+parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
 
 }

@@ -94,8 +94,6 @@ write_paup <- function(fasta_file, newick_file, outgroup, output_file) {
 }
 
 
-# bioinfor::paup('paup/Misof20000.nex -n -u', F)
-
 
 
 

@@ -1,6 +1,6 @@
 #' @title browse fastqc html output view RStduio Server
 #' @section package options embedded in aves:
-#'     options(mcapomorphy.wd = '/media/data/zhuoer') 
+#'     options(mcapomorphy.wd = '/media/data/zhuoer')
 #'     options(mcapomorphy.url = 'http://222.30.49.71:8211')
 
 
@@ -10,9 +10,10 @@
 #' @param path string. full absolute path of the file
 #'
 #' @return string.
-#' @export
 #'
 #' @examples file_url(fastqc_path('SRR6148275_2'))
+#'
+#' @export
 file_url <- function(path) {
 	paste0(getOption('mcapomorphy.url'), '/file_show?path=', path)
 }
@@ -24,9 +25,10 @@ file_url <- function(path) {
 #' @param name string. name of the sequence file, such as `'SRR6148275_2'`
 #'
 #' @return string.
-#' @export
 #'
 #' @examples fastqc_path('SRR6148275_2')
+#'
+#' @export
 fastqc_path <- function(name) {
 	paste0(getOption('mcapomorphy.wd'), '/oases/fastqc/', name, '_fastqc.html')
 }
@@ -38,9 +40,13 @@ fastqc_path <- function(name) {
 #' @param id string. sra accession, such as `'SRR029421'`
 #'
 #' @return `NULL`
-#' @export
 #'
-#' @section demo: `aves::view_sra_single('SRR029421')`
+#' @examples
+#' \donotrun{
+#'     view_sra_single('SRR029421')
+#' }
+#'
+#' @export
 view_sra_single <- function(id) {
 	id %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
@@ -52,9 +58,13 @@ view_sra_single <- function(id) {
 #' @param id string. sra accession, such as `'SRR6148275'`
 #'
 #' @return `NULL`
-#' @export
 #'
-#' @section demo: `aves::view_sra_paired('SRR6148275')`
+#' @examples
+#' \donotrun{
+#'     view_sra_paired('SRR6148275')
+#' }
+#'
+#' @export
 view_sra_paired <- function(id) {
 	id %>% paste0('_', 1:2) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
@@ -66,9 +76,13 @@ view_sra_paired <- function(id) {
 #' @param id string. sra accession, such as `'SRR029421'`
 #'
 #' @return `NULL`
-#' @export
 #'
-#' @section demo: `aves::compare_sra_single('SRR029421')`
+#' @examples
+#' \donotrun{
+#'     compare_sra_single('SRR029421')
+#' }
+#'
+#' @export
 compare_sra_single <- function(id) {
 	id %>% paste0(c('', '-trim')) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
@@ -80,9 +94,13 @@ compare_sra_single <- function(id) {
 #' @param id string. sra accession, such as `'SRR6148275'`
 #'
 #' @return `NULL`
-#' @export
 #'
-#' @section demo: `aves::compare_sra_paired('SRR6148275')`
+#' @examples
+#' \donotrun{
+#'     compare_sra_paired('SRR6148275')
+#' }
+#'
+#' @export
 compare_sra_paired <- function(id) {
 	names <- id %>% paste0('_', 1:2) %>% plyr::llply(. %>% paste0(., c('', '-trim-paired'))) %>% unlist;
 	names %>% fastqc_path %>% file_url %>% libzhuoer::browse_url(0.5);
