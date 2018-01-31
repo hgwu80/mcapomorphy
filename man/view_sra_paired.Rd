@@ -15,7 +15,9 @@ view_sra_paired(id)
 \description{
 view fastqc result of original SRA sequence for paired ends
 }
-\section{demo}{
- \code{aves::view_sra_paired('SRR6148275')}
+\examples{
+\\donotrun{
+    view_sra_paired('SRR6148275')
 }
 
+}

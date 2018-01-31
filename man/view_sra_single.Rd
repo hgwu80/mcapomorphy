@@ -15,7 +15,9 @@ view_sra_single(id)
 \description{
 view fastqc result of original SRA sequence for single ends
 }
-\section{demo}{
- \code{aves::view_sra_single('SRR029421')}
+\examples{
+\\donotrun{
+    view_sra_single('SRR029421')
 }
 
+}

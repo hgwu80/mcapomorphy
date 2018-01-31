@@ -25,7 +25,6 @@
 #'
 #' fasta <- biozhuoer::read_fasta('data-raw/EOG090F05Z3.fasta');
 #' nexus <- mcapomorphy:::fasta_to_nexus(fasta, 'protein');
-#' readr::write_lines(c('#nexus', nexus), 'data-raw/EOG090F05Z3.nexus');
 #'
 #'
 fasta_to_nexus <- function(fasta, datatype, missing='?', gap='-') {
@@ -70,8 +69,8 @@ fasta_to_nexus <- function(fasta, datatype, missing='?', gap='-') {
 #'
 #' @examples
 #'
-#' write_paup('data-raw/EOG090F05Z3.fasta', aves:::pkg_file('extdata/omics.tre'), aves::outgroup$species, 'data-raw/aves.nexus')
-#' system2('paup4a159', 'data-raw/aves.nexus -n -u', T)
+#' write_paup('data-raw/EOG090F05Z3.fasta', aves:::pkg_file('extdata/omics.tre'), aves::outgroup$species, 'data-raw/EOG090F05Z3.nexus')
+#' system2('paup4a159', 'data-raw/EOG090F05Z3.nexus -n -u', T)
 #'
 #' @export
 write_paup <- function(fasta_file, newick_file, outgroup, output_file) {

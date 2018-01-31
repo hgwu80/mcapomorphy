@@ -15,7 +15,9 @@ compare_sra_single(id)
 \description{
 compare fastqc result of original and trimmed sequence for single ends
 }
-\section{demo}{
- \code{aves::compare_sra_single('SRR029421')}
+\examples{
+\\donotrun{
+    compare_sra_single('SRR029421')
 }
 
+}

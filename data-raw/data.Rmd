@@ -1,9 +1,6 @@
 
-
+`reference`: not used directly by functions, but provide hint for file format
 
 ```{r}
-EOG090F05Z3_mat <- biozhuoer::read_fasta('data-raw/EOG090F05Z3.fasta') %>%
-	dplyr::mutate(name = stringr::str_replace(name, '_', ' ')) %>%
-	mcapomorphy:::fasta_to_gene_mat() %T>% {print(.[1:10, 91:100])}
-devtools::use_data(EOG090F05Z3_mat, overwrite = T);
+
 ```

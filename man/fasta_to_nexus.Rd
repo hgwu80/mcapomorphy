@@ -38,7 +38,6 @@ force the line width less than 80.
 
 fasta <- biozhuoer::read_fasta('data-raw/EOG090F05Z3.fasta');
 nexus <- mcapomorphy:::fasta_to_nexus(fasta, 'protein');
-readr::write_lines(c('#nexus', nexus), 'data-raw/EOG090F05Z3.nexus');
 
 
 }

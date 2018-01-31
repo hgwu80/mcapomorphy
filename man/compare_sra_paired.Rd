@@ -15,7 +15,9 @@ compare_sra_paired(id)
 \description{
 compare fastqc result of original and trimmed sequence for paired ends
 }
-\section{demo}{
- \code{aves::compare_sra_paired('SRR6148275')}
+\examples{
+\\donotrun{
+    compare_sra_paired('SRR6148275')
 }
 
+}

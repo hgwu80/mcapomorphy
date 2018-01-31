@@ -29,7 +29,7 @@ for \code{fasta_file}, \code{newick_file} and \code{outgroup} only
 }
 \examples{
 
-write_paup('data-raw/EOG090F05Z3.fasta', aves:::pkg_file('extdata/omics.tre'), aves::outgroup$species, 'data-raw/aves.nexus')
-system2('paup4a159', 'data-raw/aves.nexus -n -u', T)
+write_paup('data-raw/EOG090F05Z3.fasta', aves:::pkg_file('extdata/omics.tre'), aves::outgroup$species, 'data-raw/EOG090F05Z3.nexus')
+system2('paup4a159', 'data-raw/EOG090F05Z3.nexus -n -u', T)
 
 }
