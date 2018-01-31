@@ -1,6 +1,7 @@
 
 #' @title convert gff file produced by augustus to fasta file storing protein
 #'
+#'
 #' @param input. string. path to input file
 #' @param output string. path to output file
 #'
@@ -10,23 +11,26 @@
 augustus_gff_to_fasta <- function(input, output) {
 	if (!file.exists(input)) return(NULL);
 
-    gff <- readr::read_lines(input)
+    gff <- readr::read_lines(input);
 
-	fasta <- gff %>% stringr::str_subset('^#') %>%
+	seq <- gff %>% stringr::str_subset('^#') %>%
     	stringr::str_replace('^# ', '') %>%
 		paste0(collapse = '') %>%
 		{stringr::str_extract_all(., '(?<=protein sequence = \\[)[^\\[\\]]+(?=\\])')[[1]]}
-	names(fasta) <- seq_along(fasta);
+	name <- seq_along(seq);
+	fasta <- tibble::tibble(name, seq);
 
-    bioinfor::write_fasta(fasta, output);
+    biozhuoer::write_fasta(fasta, output);
 }
 
 
 
 #' @title convert hamstr output file to FASTA format
 #'
+#' @details if a OG exists multiple times, only the first one would be reserved
+#'
 #' @param input. character. path to input file, can be more than one.
-#'   non-existent ones are ignored
+#'   non-existent ones are ignored.
 #' @param output string. path to output file
 #'
 #' @return `NULL`
@@ -38,8 +42,14 @@ hamstr_out_to_fasta <- function(input, output) {
 	fasta <- tibble::data_frame(
 		name = stringr::str_extract(content, '^\\w+'),
 		seq  = stringr::str_replace(content, '^[\\w\\W]+\\|', '')
-	) %>% plyr::ddply('name', . %>% slice(1));
+	) %>% plyr::ddply('name', . %>% dplyr::slice(1));
 
     biozhuoer::write_fasta(fasta, output);
 }
+
+
+
+
+
+
 

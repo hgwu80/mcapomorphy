@@ -10,11 +10,14 @@ hamstr_out_to_fasta(input, output)
 \item{output}{string. path to output file}
 
 \item{input.}{character. path to input file, can be more than one.
-non-existent ones are ignored}
+non-existent ones are ignored.}
 }
 \value{
 \code{NULL}
 }
 \description{
 convert hamstr output file to FASTA format
+}
+\details{
+if a OG exists multiple times, only the first one would be reserved
 }
