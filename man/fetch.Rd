@@ -4,7 +4,7 @@
 \alias{fetch}
 \title{download many webpages parallelly}
 \usage{
-fetch(srcs, prefix_url, dest_dir, mutate = function(x) {     x })
+fetch(srcs, prefix_url, dest_dir)
 }
 \arguments{
 \item{srcs}{character. would become the names of downloaded files.}
@@ -13,12 +13,14 @@ fetch(srcs, prefix_url, dest_dir, mutate = function(x) {     x })
 \code{paste0(prefix_url, query)} gives the url, see \code{mutate} for \code{query}}
 
 \item{dest_dir}{string. such as 'data-raw/wikipedia/'}
-
-\item{mutate}{function. \code{mutate(src)} returns \code{query}.}
 }
 \value{
 \code{NULL}
 }
 \description{
 download many webpages parallelly
+}
+\details{
+only retry for at most \code{getOption('mcapomorphy.max_iterate', 64L)}
+times per execute, you may run it again if you still have problems
 }
