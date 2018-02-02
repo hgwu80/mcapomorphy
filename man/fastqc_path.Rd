@@ -17,5 +17,4 @@ return the full absolute path of the fastqc result
 }
 \examples{
 fastqc_path('SRR6148275_2')
-
 }

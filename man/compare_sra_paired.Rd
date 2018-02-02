@@ -19,5 +19,4 @@ compare fastqc result of original and trimmed sequence for paired ends
 \\donotrun{
     compare_sra_paired('SRR6148275')
 }
-
 }

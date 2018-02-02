@@ -12,8 +12,6 @@
 #' @return string.
 #'
 #' @examples file_url(fastqc_path('SRR6148275_2'))
-#'
-#' @export
 file_url <- function(path) {
 	paste0(getOption('mcapomorphy.url'), '/file_show?path=', path)
 }
@@ -27,8 +25,6 @@ file_url <- function(path) {
 #' @return string.
 #'
 #' @examples fastqc_path('SRR6148275_2')
-#'
-#' @export
 fastqc_path <- function(name) {
 	paste0(getOption('mcapomorphy.wd'), '/oases/fastqc/', name, '_fastqc.html')
 }
@@ -45,8 +41,6 @@ fastqc_path <- function(name) {
 #' \donotrun{
 #'     view_sra_single('SRR029421')
 #' }
-#'
-#' @export
 view_sra_single <- function(id) {
 	id %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
@@ -63,8 +57,6 @@ view_sra_single <- function(id) {
 #' \donotrun{
 #'     view_sra_paired('SRR6148275')
 #' }
-#'
-#' @export
 view_sra_paired <- function(id) {
 	id %>% paste0('_', 1:2) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
@@ -81,8 +73,6 @@ view_sra_paired <- function(id) {
 #' \donotrun{
 #'     compare_sra_single('SRR029421')
 #' }
-#'
-#' @export
 compare_sra_single <- function(id) {
 	id %>% paste0(c('', '-trim')) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
@@ -99,8 +89,6 @@ compare_sra_single <- function(id) {
 #' \donotrun{
 #'     compare_sra_paired('SRR6148275')
 #' }
-#'
-#' @export
 compare_sra_paired <- function(id) {
 	names <- id %>% paste0('_', 1:2) %>% plyr::llply(. %>% paste0(., c('', '-trim-paired'))) %>% unlist;
 	names %>% fastqc_path %>% file_url %>% libzhuoer::browse_url(0.5);

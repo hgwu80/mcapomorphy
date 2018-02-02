@@ -19,5 +19,4 @@ view fastqc result of original SRA sequence for paired ends
 \\donotrun{
     view_sra_paired('SRR6148275')
 }
-
 }

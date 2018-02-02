@@ -19,5 +19,4 @@ view fastqc result of original SRA sequence for single ends
 \\donotrun{
     view_sra_single('SRR029421')
 }
-
 }

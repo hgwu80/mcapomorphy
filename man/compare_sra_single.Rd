@@ -19,5 +19,4 @@ compare fastqc result of original and trimmed sequence for single ends
 \\donotrun{
     compare_sra_single('SRR029421')
 }
-
 }

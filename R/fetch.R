@@ -7,7 +7,6 @@
 #' @param assessions character.
 #'
 #' @return `NULL`
-#' @export
 fetch_assembly <- function(assessions) {
 	fetch(assessions, 'https://www.ncbi.nlm.nih.gov/assembly/', 'data-raw/assembly-html/');
 }
@@ -18,7 +17,6 @@ fetch_assembly <- function(assessions) {
 #' @param assessions character.
 #'
 #' @return `NULL`
-#' @export
 fetch_genome <- function(id) {
 	fetch(id, 'https://www.ncbi.nlm.nih.gov/genome/', 'data-raw/genome-html/');
 }
@@ -30,7 +28,6 @@ fetch_genome <- function(id) {
 #' @param ids character.
 #'
 #' @return `NULL`
-#' @export
 fetch_TSA <- function(ids) {
 	fetch(ids, 'https://www.ncbi.nlm.nih.gov/Traces/wgs/', 'data-raw/TSA-html/');
 }

@@ -14,6 +14,7 @@ test_that("Testing augustus_gff_to_fasta", {
 
 
 test_that("Testing hamstr_out_to_fasta", {
+    # I make line 3 duplicate of line 2 to test `hamstr_out_to_fasta`
 	chicken <- tempfile() %T>% hamstr_out_to_fasta('data-raw/chicken.out', .) %>% biozhuoer::read_fasta();
 
 	expect_true(identical(chicken$name, c('EOG090F0013', 'EOG090F0028')));
