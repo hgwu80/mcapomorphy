@@ -20,4 +20,5 @@ Imports: biozhuoer,
     tibble,
     dplyr,
     readr,
-    parallel
+    parallel,
+    jsonlite

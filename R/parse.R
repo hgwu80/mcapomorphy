@@ -2,17 +2,17 @@
 #'
 #' @param path string. path to the HTML file.
 #'
-#' @return data_frame
+#' @return [tibble::tibble()]
 #'
-#' 1. species
+#'   1. species
 #'
-#' 1. number
+#'   1. number
 #'
-#' 1. dna
+#'   1. dna
 #'
-#' 1. rna
+#'   1. rna
 #'
-#' 1. protein
+#'   1. protein
 #'
 #' @examples
 #'     parse_genome('data-raw/genome55342.html')
@@ -40,6 +40,43 @@ parse_genome <- function(path) {
 }
 
 
+
+#' @title parse assembly metadata in xml format
+#'
+#' @param path `x` of [xml2::read_xml()]. assembly metadata in XML format
+#'
+#' @return [tibble::tibble()]
+#'
+#'   1. species
+#'
+#'   1. id
+#'
+#'   1. similarity logical scalar.
+#'
+#'   1. partial logical scalar.
+#'
+#'   1. gca_dir
+#'
+#'   1. gcf_dir
+#'
+#' @section to do: unittest
+#' @export
+#'
+#' @examples
+parse_assembly <- function(path) {
+	as_string <- . %>% {if (rlang::is_empty(.)) '' else .[[1]]};
+
+	assembly <- xml2::read_xml(path) %>% xml2::as_list() %>% `[[`(1);
+	species = assembly$SpeciesName[[1]];
+	id = assembly$AssemblyAccession[[1]];
+	similarity = assembly$Synonym$Similarity %>%
+		{if (rlang::is_empty(.)) NA else .[[1]]};
+	partial = as.logical(assembly$PartialGenomeRepresentation[[1]]);
+	gca_dir = as_string(assembly$FtpPath_GenBank);
+	gcf_dir = as_string(assembly$FtpPath_RefSeq);
+
+	tibble::tibble(species, id, similarity, partial, gca_dir, gcf_dir);
+}
 
 
 

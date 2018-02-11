@@ -10,7 +10,7 @@ parse_genome(path)
 \item{path}{string. path to the HTML file.}
 }
 \value{
-data_frame
+\code{\link[tibble:tibble]{tibble::tibble()}}
 \enumerate{
 \item species
 \item number
