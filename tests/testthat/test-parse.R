@@ -24,9 +24,9 @@ test_that("Testing parse_genome", {
 
 
 test_that("Testing parse_avibase", {
-    parse_avibase_demo <- tibble::data_frame(
-        order = "Coliiformes", family = "Coliidae",
-        genus = "Colius", species = "Colius striatus"
+    parse_avibase_demo <- tibble::tibble(
+        order = "Coliiformes", family = "Coliidae", genus = "Colius",
+        species = "Colius striatus", id = 'Avibase-1FDDABDB0D4421F9.html'
     );
     expect_true(identical(parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html'), parse_avibase_demo));
 });

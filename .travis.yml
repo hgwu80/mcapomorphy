@@ -1,0 +1,21 @@
+language: r
+os: [linux, osx]
+r: release
+cache: packages
+latex: false
+pandoc: false
+fortran: false
+git:
+  depth: false
+
+before_install:
+  - R -e "if (Sys.getenv('TRAVIS_EVENT_TYPE') == 'cron') unlink(dir(.libPaths()[1], full.names = T), recursive = T)"
+install:
+  - R --slave -e "if (!('devtools' %in% .packages(T))) install.packages('devtools')"
+  - R --slave -e "devtools::install_github('r-lib/devtools')"
+script:
+  - R --slave -e "devtools::install_local(getwd())"
+  - R --slave -e "devtools::update_packages(c('testthat', 'roxygen2')); devtools::load_all(); if (dir.exists('tests/testthat')) {devtools::test(); testthat::test_dir('tests/testthat/', reporter = 'fail')}"
+
+notifications:
+  email: false

@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse.R
 \name{parse_avibase}
 \alias{parse_avibase}
-\title{parse wikipedia species webpage}
+\title{parse avibase species webpage}
 \usage{
 parse_avibase(path)
 }
@@ -16,12 +16,17 @@ data_frame
 \item family
 \item genus
 \item species
+\item id
 }
 }
 \description{
-parse wikipedia species webpage
+parse avibase species webpage
+}
+\details{
+you have to download a Chinese webpage: note \code{lang=ZH} in \code{https://avibase.bsc-eoc.org/species.jsp?lang=ZH&amp;avibaseid=}
 }
 \examples{
-parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
+parse_avibase('data-raw/01761045A529DC4A')
+
 
 }

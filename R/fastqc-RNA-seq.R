@@ -1,6 +1,6 @@
 #' @title browse fastqc html output view RStduio Server
 #' @section package options embedded in aves:
-#'     options(mcapomorphy.wd = '/media/data/zhuoer')
+#'     options(mcapomorphy.wd = '/media/data/aves')
 #'     options(mcapomorphy.url = 'http://222.30.49.71:8211')
 
 

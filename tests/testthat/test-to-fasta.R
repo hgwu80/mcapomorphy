@@ -4,12 +4,12 @@ setwd('../..');
 
 
 
-test_that("Testing augustus_gff_to_fasta", {
-	augustus_demo <- tempfile() %T>% augustus_gff_to_fasta('data-raw/augustus-demo.gff', .) %>% biozhuoer::read_fasta();
+# test_that("Testing augustus_gff_to_fasta", {
+# 	augustus_demo <- tempfile() %T>% augustus_gff_to_fasta('data-raw/augustus-demo.gff', .) %>% biozhuoer::read_fasta();
 
-	expect_true(identical(augustus_demo$name, c('1', '2')));
-	expect_true(identical(nchar(augustus_demo$seq), c(604L, 167L)));
-});
+# 	expect_true(identical(augustus_demo$name, c('1', '2')));
+# 	expect_true(identical(nchar(augustus_demo$seq), c(604L, 167L)));
+# });
 
 
 

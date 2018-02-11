@@ -80,10 +80,11 @@ parse_assembly <- function(path) {
 
 
 
-#' @title parse wikipedia species webpage
+#' @title parse avibase species webpage
+#'
+#' @details you have to download a Chinese webpage: note `lang=ZH` in `https://avibase.bsc-eoc.org/species.jsp?lang=ZH&avibaseid=`
 #'
 #' @param path string. path to the HTML file.
-
 #'
 #' @return data_frame
 #'
@@ -95,7 +96,11 @@ parse_assembly <- function(path) {
 #'
 #' 1. species
 #'
-#' @examples parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
+#' 1. id
+#'
+#' @examples
+#' parse_avibase('data-raw/01761045A529DC4A')
+#' parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
 #'
 #' @export
 parse_avibase <- function(path) {
@@ -105,5 +110,6 @@ parse_avibase <- function(path) {
 	v <- avibase %>% rvest::html_nodes('td.AVBContainerText script + p') %>%
 		rvest::html_text() %>% {stringr::str_extract_all(., '[a-zA-Z]+')[[1]]};
 
-	tibble::data_frame(order = v[1], family = v[2], genus = v[3], species = species);
+	tibble::data_frame(order = v[1], family = v[2], genus = v[3],
+					   species = species, id = basename(path));
 }
