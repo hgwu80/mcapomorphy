@@ -27,6 +27,6 @@ you have to download a Chinese webpage: note \code{lang=ZH} in \code{https://avi
 }
 \examples{
 parse_avibase('data-raw/01761045A529DC4A')
-
+parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
 
 }

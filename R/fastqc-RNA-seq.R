@@ -42,7 +42,7 @@ fastqc_path <- function(name) {
 #'     view_sra_single('SRR029421')
 #' }
 view_sra_single <- function(id) {
-	id %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
+	id %>% paste0('output/', .) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
 
 
@@ -58,7 +58,7 @@ view_sra_single <- function(id) {
 #'     view_sra_paired('SRR6148275')
 #' }
 view_sra_paired <- function(id) {
-	id %>% paste0('_', 1:2) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
+	id %>% paste0('output/', .) %>% paste0('_', 1:2) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
 
 
@@ -74,7 +74,7 @@ view_sra_paired <- function(id) {
 #'     compare_sra_single('SRR029421')
 #' }
 compare_sra_single <- function(id) {
-	id %>% paste0(c('', '-trim')) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
+	id %>% paste0(c('input/', 'output/'), .) %>% fastqc_path %>% file_url %>% libzhuoer::browse_url();
 }
 
 
@@ -90,7 +90,7 @@ compare_sra_single <- function(id) {
 #'     compare_sra_paired('SRR6148275')
 #' }
 compare_sra_paired <- function(id) {
-	names <- id %>% paste0('_', 1:2) %>% plyr::llply(. %>% paste0(., c('', '-trim-paired'))) %>% unlist;
+	names <- id %>% paste0('_', 1:2) %>% plyr::llply(. %>% paste0(c('input/', 'output/'), .)) %>% unlist;
 	names %>% fastqc_path %>% file_url %>% libzhuoer::browse_url(0.5);
 }
 
