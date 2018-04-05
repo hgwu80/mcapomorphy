@@ -24,11 +24,12 @@ result of \code{\link[=system2]{system2()}} or \code{NULL} if \code{input} doesn
 wrapper to run AUGUSTUS
 }
 \examples{
-\\donotrun {
+\dontrun{
     augustus('human', 'software/augustus/examples/example.fa');
     augustus('human', 'software/augustus/examples/hsackI10.fa.gz')
 
     augustus('human', 'software/augustus/examples/example.fa', 'test.gff');
 }
+
 
 }

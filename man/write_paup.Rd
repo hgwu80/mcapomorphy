@@ -28,8 +28,14 @@ for \code{fasta_file}, \code{newick_file} and \code{outgroup} only
 \code{[[:alnum:]_]} are allowed in taxon name (sequence header)
 }
 \examples{
-
-write_paup('data-raw/EOG090F05Z3.fasta', aves:::pkg_file('extdata/omics.tre'), aves::outgroup$species, 'data-raw/EOG090F05Z3.nexus')
-system2('paup4a159', 'data-raw/EOG090F05Z3.nexus -n -u', T)
+temp_file <- tempfile()
+write_paup(
+    system.file('extdata', 'EOG090F05Z3.fasta', package = 'mcapomorphy'), 
+    system.file('extdata', 'omics.tre', package = 'mcapomorphy'), 
+    aves::outgroup$species, temp_file
+)
+\dontrun{
+    system2('paup4a159', 'data-raw/EOG090F05Z3.nexus -n -u', T)
+}
 
 }

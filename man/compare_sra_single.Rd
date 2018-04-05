@@ -16,7 +16,9 @@ compare_sra_single(id)
 compare fastqc result of original and trimmed sequence for single ends
 }
 \examples{
-\\donotrun{
+\dontrun{
     compare_sra_single('SRR029421')
 }
+
 }
+\keyword{internal}

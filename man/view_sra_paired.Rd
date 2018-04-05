@@ -16,7 +16,9 @@ view_sra_paired(id)
 view fastqc result of original SRA sequence for paired ends
 }
 \examples{
-\\donotrun{
+\dontrun{
     view_sra_paired('SRR6148275')
 }
+
 }
+\keyword{internal}

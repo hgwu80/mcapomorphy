@@ -16,7 +16,9 @@ compare_sra_paired(id)
 compare fastqc result of original and trimmed sequence for paired ends
 }
 \examples{
-\\donotrun{
+\dontrun{
     compare_sra_paired('SRR6148275')
 }
+
 }
+\keyword{internal}

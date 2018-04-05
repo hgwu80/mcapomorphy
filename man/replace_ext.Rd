@@ -15,4 +15,6 @@ extension name can be any number of \code{\\w}
 
 \examples{
 replace_ext('a.txt', '.md')
+
 }
+\keyword{internal}

@@ -1,6 +1,6 @@
-context("Testing to-fasta.R")
+testthat::context("Testing to-fasta.R")
+if (basename(getwd()) == 'testthat') setwd('../..')  # workspace is reset per file
 
-setwd('../..');
 
 
 
@@ -13,10 +13,10 @@ setwd('../..');
 
 
 
-test_that("Testing hamstr_out_to_fasta", {
+testthat::test_that("Testing hamstr_out_to_fasta", {
     # I make line 3 duplicate of line 2 to test `hamstr_out_to_fasta`
-	chicken <- tempfile() %T>% hamstr_out_to_fasta('data-raw/chicken.out', .) %>% biozhuoer::read_fasta();
+	chicken <- tempfile() %T>% hamstr_out_to_fasta('inst/extdata/chicken.out', .) %>% biozhuoer::read_fasta();
 
-	expect_true(identical(chicken$name, c('EOG090F0013', 'EOG090F0028')));
-	expect_true(identical(nchar(chicken$seq), c(3478L, 3397L)));
+	testthat::expect_true(identical(chicken$name, c('EOG090F0013', 'EOG090F0028')));
+	testthat::expect_true(identical(nchar(chicken$seq), c(3478L, 3397L)));
 });

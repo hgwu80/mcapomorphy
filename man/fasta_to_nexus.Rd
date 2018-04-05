@@ -28,16 +28,15 @@ internal function for \code{\link[=write_paup]{write_paup()}}
 \details{
 the return value will be printed when call at console, if the file
 is big, it will take a while, and you can't do anything. Consider
-\code{fasta_to_nexus() -&gt; x} to avoid automatically printing.
+\code{fasta_to_nexus() -> x} to avoid automatically printing.
 
 Alternatively, you can use seaview But it may take several seconds if each
 sequence lies on only one line in the original file, because seaview always
 force the line width less than 80.
 }
 \examples{
-
-fasta <- biozhuoer::read_fasta('data-raw/EOG090F05Z3.fasta');
-nexus <- mcapomorphy:::fasta_to_nexus(fasta, 'protein');
-
+fasta <- biozhuoer::read_fasta(system.file('extdata', 'EOG090F05Z3.fasta', package = 'mcapomorphy'))
+fasta_to_nexus(fasta, 'protein');
 
 }
+\keyword{internal}

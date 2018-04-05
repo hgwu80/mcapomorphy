@@ -22,11 +22,10 @@
 #'   included.
 #'
 #' @examples
+#' fasta <- biozhuoer::read_fasta(system.file('extdata', 'EOG090F05Z3.fasta', package = 'mcapomorphy'))
+#' fasta_to_nexus(fasta, 'protein');
 #'
-#' fasta <- biozhuoer::read_fasta('data-raw/EOG090F05Z3.fasta');
-#' nexus <- mcapomorphy:::fasta_to_nexus(fasta, 'protein');
-#'
-#'
+#' @keywords internal
 fasta_to_nexus <- function(fasta, datatype, missing='?', gap='-') {
 	fasta$name %<>% {paste0(format(.), '    ')};   #add extra spaces to align name
     fasta$seq  %<>% stringr::str_replace_all('U', 'X');
@@ -68,10 +67,16 @@ fasta_to_nexus <- function(fasta, datatype, missing='?', gap='-') {
 #' @return `NULL`
 #'
 #' @examples
-#'
-#' write_paup('data-raw/EOG090F05Z3.fasta', aves:::pkg_file('extdata/omics.tre'), aves::outgroup$species, 'data-raw/EOG090F05Z3.nexus')
-#' system2('paup4a159', 'data-raw/EOG090F05Z3.nexus -n -u', T)
-#'
+#' temp_file <- tempfile()
+#' write_paup(
+#'     system.file('extdata', 'EOG090F05Z3.fasta', package = 'mcapomorphy'), 
+#'     system.file('extdata', 'omics.tre', package = 'mcapomorphy'), 
+#'     aves::outgroup$species, temp_file
+#' )
+#' \dontrun{
+#'     system2('paup4a159', 'data-raw/EOG090F05Z3.nexus -n -u', T)
+#' }
+#' 
 #' @export
 write_paup <- function(fasta_file, newick_file, outgroup, output_file) {
 	sequence <- biozhuoer::read_fasta(fasta_file) %>% fasta_to_nexus('protein');

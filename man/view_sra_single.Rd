@@ -16,7 +16,9 @@ view_sra_single(id)
 view fastqc result of original SRA sequence for single ends
 }
 \examples{
-\\donotrun{
+\dontrun{
     view_sra_single('SRR029421')
 }
+
 }
+\keyword{internal}

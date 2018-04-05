@@ -23,10 +23,10 @@ data_frame
 parse avibase species webpage
 }
 \details{
-you have to download a Chinese webpage: note \code{lang=ZH} in \code{https://avibase.bsc-eoc.org/species.jsp?lang=ZH&amp;avibaseid=}
+you have to download a Chinese webpage: note \code{lang=ZH} in \code{https://avibase.bsc-eoc.org/species.jsp?lang=ZH&avibaseid=}
 }
 \examples{
-parse_avibase('data-raw/01761045A529DC4A')
-parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
+parse_avibase(system.file('extdata', '01761045A529DC4A', package = 'mcapomorphy'))
+parse_avibase(system.file('extdata', 'Avibase-1FDDABDB0D4421F9.html', package = 'mcapomorphy'))
 
 }

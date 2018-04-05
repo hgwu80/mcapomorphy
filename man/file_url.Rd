@@ -25,4 +25,6 @@ options(mcapomorphy.url = 'http://222.30.49.71:8211')
 
 \examples{
 file_url(fastqc_path('SRR6148275_2'))
+
 }
+\keyword{internal}

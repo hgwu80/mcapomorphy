@@ -7,9 +7,15 @@ pkg_file <- function(..., mustWork = TRUE) {
 
 
 #' @title replace extension name
+#'
 #' @description extension name can be any number of `\\w`
-#' @examples replace_ext('a.txt', '.md')
+#'
+#' @examples
+#' replace_ext('a.txt', '.md')
+#'
 #' @section to do: unittest
+#'
+#' @keywords internal
 replace_ext <- function(filename, new_ext = '') {
 	stringr::str_replace(filename, '\\.\\w*$', new_ext);
 }
@@ -18,6 +24,7 @@ replace_ext <- function(filename, new_ext = '') {
 
 
 #' @title get the outermost list which contains more than one element
+#'
 #' @description `unnest_list(list(list(list(1))))` gives `list(1)`
 #'
 #' @examples
@@ -26,6 +33,8 @@ replace_ext <- function(filename, new_ext = '') {
 #' unnest_list(list(list(list(1))))
 #' unnest_list(list(list(list(1), list(2))))
 #' unnest_list(list(list(list(1)), list(2)))
+#'
+#' @export
 unnest_list <- function(x) {
 	if (!is.list(x)) return(x);
 

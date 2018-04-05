@@ -10,12 +10,13 @@
 #' @return result of [system2()] or `NULL` if `input` doesn't exist
 #'
 #' @examples
-#' \donotrun {
+#' \dontrun{
 #'     augustus('human', 'software/augustus/examples/example.fa');
 #'     augustus('human', 'software/augustus/examples/hsackI10.fa.gz')
 #'
 #'     augustus('human', 'software/augustus/examples/example.fa', 'test.gff');
 #' }
+#' 
 #'
 #' @export
 augustus <- function(species, input, output = NULL, args = '', ...) {

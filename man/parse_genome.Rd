@@ -23,7 +23,7 @@ parse_genome(path)
 parse NCBI genome webpage
 }
 \examples{
-    parse_genome('data-raw/genome55342.html')
-    parse_genome('data-raw/genome2793.html')
+parse_genome(system.file('extdata', 'genome55342.html', package = 'mcapomorphy'))
+parse_genome(system.file('extdata', 'genome2793.html', package = 'mcapomorphy'))
 
 }

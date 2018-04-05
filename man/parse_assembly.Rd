@@ -27,3 +27,7 @@ parse assembly metadata in xml format
  unittest
 }
 
+\examples{
+NULL
+
+}

@@ -15,8 +15,8 @@
 #'   1. protein
 #'
 #' @examples
-#'     parse_genome('data-raw/genome55342.html')
-#'     parse_genome('data-raw/genome2793.html')
+#' parse_genome(system.file('extdata', 'genome55342.html', package = 'mcapomorphy'))
+#' parse_genome(system.file('extdata', 'genome2793.html', package = 'mcapomorphy'))
 #'
 #' @export
 parse_genome <- function(path) {
@@ -60,9 +60,11 @@ parse_genome <- function(path) {
 #'   1. gcf_dir
 #'
 #' @section to do: unittest
-#' @export
 #'
 #' @examples
+#' NULL
+#'
+#' @export
 parse_assembly <- function(path) {
 	as_string <- . %>% {if (rlang::is_empty(.)) '' else .[[1]]};
 
@@ -99,8 +101,8 @@ parse_assembly <- function(path) {
 #' 1. id
 #'
 #' @examples
-#' parse_avibase('data-raw/01761045A529DC4A')
-#' parse_avibase('data-raw/Avibase-1FDDABDB0D4421F9.html')
+#' parse_avibase(system.file('extdata', '01761045A529DC4A', package = 'mcapomorphy'))
+#' parse_avibase(system.file('extdata', 'Avibase-1FDDABDB0D4421F9.html', package = 'mcapomorphy'))
 #'
 #' @export
 parse_avibase <- function(path) {
