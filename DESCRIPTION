@@ -5,7 +5,7 @@ Version: 0.0.0.9000
 Authors@R: person("Zhuoer", "Dong", email = "dongzhuoer@mail.nankai.edu.cn", 
     role = c("aut", "cre"))
 Description: refer to https://dongzhuoer.github.io/mcapomorphy
-URL: https://github.com/dongzhuoer/mcapomorphy
+URL: https://dongzhuoer.github.io/mcapomorphy, https://github.com/dongzhuoer/mcapomorphy
 BugReports: https://github.com/dongzhuoer/mcapomorphy/issues
 License: file LICENSE
 Encoding: UTF-8
