@@ -25,6 +25,9 @@ Imports:
     parallel,
     jsonlite,
     plyr
+Suggests:
+    prettydoc
 Remotes:
     dongzhuoer/libzhuoer,
     dongzhuoer/biozhuoer
+VignetteBuilder: knitr, rmarkdown
